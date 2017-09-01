@@ -27,21 +27,18 @@
 
 
 ``` java
+
     @GetMapping( "users/{name}" )
 	@PassInjectionAttackIntercept( { "update" , "delete" } )
 	public ResponseEntity< User > users ( @PathVariable String name ) {
-		return ResponseEntity.ok()
-							 .body( users.parallelStream()
-										 .filter( user -> Objects.equals( user.getUsername() , name ) )
-										 .findAny()
-										 .orElse( new User() ) );
+		return ResponseEntity.ok().body( name );
 	}
 
 	@PostMapping( "users" )
 	@PassInjectionAttackIntercept( { "update" , "delete" } )
 	public ResponseEntity< User > users ( @RequestBody User user ) {
-		users.add( user.setId( System.currentTimeMillis() ) );
 		return ResponseEntity.ok().body( user );
 	}
+	
 ```
 
