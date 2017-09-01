@@ -28,7 +28,7 @@
 
 ``` java
 
-    @GetMapping( "users/{name}" )
+	@GetMapping( "users/{name}" )
 	@PassInjectionAttackIntercept( { "update" , "delete" } )
 	public ResponseEntity< User > users ( @PathVariable String name ) {
 		return ResponseEntity.ok().body( name );
