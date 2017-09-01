@@ -1,6 +1,10 @@
 # InjectionAttackInterceptor
 注入工具拦截器
++ XSS
++ SQL注入
++ 特殊字符
 
+**可自定义拦截策略**
 
 控制器中加入注解@PassInjectionAttackIntercept,那么这个Mapping则不会进行注入拦截处理,或者对某些特定字符忽略
 
@@ -27,7 +31,6 @@
 
 
 ``` java
-
 	@GetMapping( "users/{name}" )
 	@PassInjectionAttackIntercept( { "update" , "delete" } )
     public ResponseEntity< User > users ( @PathVariable String name ) {
