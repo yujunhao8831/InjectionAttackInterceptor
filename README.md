@@ -1,5 +1,5 @@
 # InjectionAttackInterceptor
-注入工具拦截器
+注入攻击拦截器
 + XSS
 + SQL注入
 + 特殊字符
