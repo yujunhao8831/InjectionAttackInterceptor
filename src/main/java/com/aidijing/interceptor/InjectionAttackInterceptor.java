@@ -27,6 +27,11 @@ import java.util.Objects;
 
 /**
  * 注入攻击拦截器
+ * <p style="color:red">
+ * 注意 : 参数传递时,特殊字符注意进行URL转码. <br>
+ * 比如 : 前端传递 '%' 这类字符的时候,如果直接 "/api/users?name=%" 这样传递过来的话,会被判定为注入攻击,因为在解析时会把 '%' 当做 '"' 进行处理了 <br>
+ * 正确做法是 "/api/users?name=%25"  因为 '%'  URLEncoder(UTF-8) 后的值为 '%25',这样后台就能够正确解析 <br>
+ * </p>
  *
  * @author : 披荆斩棘
  * @date : 2017/8/29
